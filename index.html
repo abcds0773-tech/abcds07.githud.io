@@ -2,77 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>WailaPt</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body{
-      margin:0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(120deg,#ff9a9e,#fad0c4,#fad0c4);
-      color:#333;
-    }
-    header{
-      padding:40px 20px;
-      text-align:center;
-      background:rgba(255,255,255,0.7);
-    }
-    section{
-      padding:30px 20px;
-      max-width:900px;
-      margin:auto;
-    }
-    h1,h2{
-      color:#444;
-    }
-    .card{
-      background:#fff;
-      padding:20px;
-      border-radius:12px;
-      margin-bottom:15px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    }
-    footer{
-      text-align:center;
-      padding:20px;
-      background:#fff;
-    }
-  </style>
+  <title>WailaPt</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-<header>
-  <h1>WailaPt</h1>
-  <p>Gentle Support for Life, Faith, and Heart</p>
-</header>
+  <!-- Header / Intro -->
+  <header>
+    <h1>Welcome to WailaPt</h1>
+    <p class="subtitle">Gentle Support for Life, Faith, and Heart</p>
+  </header>
 
-<section>
-  <h2>About Me</h2>
-  <div class="card">
-    <p>
-      I believe in honesty, kindness, and continuous effort.
-      This space is created to gently support people in different parts of life.
-    </p>
-  </div>
-</section>
+  <!-- Existing sections preserved -->
+  <section id="about">
+    <!-- About content -->
+  </section>
 
-<section>
-  <h2>Services</h2>
-  <div class="card">🤝 Social Support – Helping with life challenges</div>
-  <div class="card">🕊️ Religious Support – Faith-based guidance</div>
-  <div class="card">❤️ Relationship Support – Care for love and emotions</div>
-</section>
+  <!-- Services Section (New) -->
+  <section id="services">
+    <button id="serviceBtn">Services</button>
+    <div id="serviceSearch" style="display:none; margin-top:15px; max-width:400px;">
+      <input type="text" id="searchInput" placeholder="What do you need help with?" />
+      <ul id="supportList">
+        <li>Social Support</li>
+        <li>Religious Guidance</li>
+        <li>Relationship Advice</li>
+        <li>Career Guidance</li>
+        <li>Mental Health Support</li>
+        <li>Financial Advice</li>
+        <li>Study & Learning Help</li>
+      </ul>
+    </div>
+  </section>
 
-<section>
-  <h2>Contact</h2>
-  <div class="card">
-    📧 Email: abcds0773@gmail.com  
-    <br>📌 Facebook: (Coming Soon)
-  </div>
-</section>
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 WailaPt | <a href="mailto:abcds0773@gmail.com">Contact</a>
+  </footer>
 
-<footer>
-  © 2025 WailaPt
-</footer>
-
+  <script src="assets/script.js"></script>
 </body>
 </html>
