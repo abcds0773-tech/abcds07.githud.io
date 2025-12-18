@@ -31,7 +31,7 @@ document.getElementById('serviceBtn-mm').addEventListener('click', () => {
 });
 
 // -----------------------
-// Support Details
+// Main Support Details
 // -----------------------
 const supportDetailsEn = {
   social: [
@@ -68,21 +68,23 @@ const supportDetailsMm = {
 };
 
 // -----------------------
-// Sub-Questions
+// Sub-Questions (Example 10 per main point)
 // -----------------------
 const subQuestionsEn = {
   social: {
     1: [
       {q:"How do I listen effectively?", a:"Maintain eye contact, nod, and avoid interrupting."},
-      {q:"How to show empathy?", a:"Use phrases like 'I understand' or 'I can see why you feel that way'."}
-      // Add remaining 8 Q&A
+      {q:"How to show empathy?", a:"Use phrases like 'I understand' or 'I can see why you feel that way'."},
+      {q:"How to support someone in crisis?", a:"Offer calm presence and listen without judgment."},
+      {q:"How often should I check in?", a:"Regularly, based on their comfort level."},
+      {q:"How to respect boundaries?", a:"Ask permission before giving advice or touching."},
+      {q:"How to avoid giving unwanted advice?", a:"Focus on listening and reflecting their feelings."},
+      {q:"How to encourage openness?", a:"Ask open-ended questions gently."},
+      {q:"How to manage emotional fatigue?", a:"Take breaks and practice self-care."},
+      {q:"How to show support without words?", a:"Offer gestures like a smile or nod."},
+      {q:"How to involve others?", a:"Connect them to resources or supportive community."}
     ]
-  },
-  religious: {
-    1: [
-      {q:"What is spiritual counseling?", a:"Guidance to cope with emotional or spiritual issues."}
-      // Add remaining 9 Q&A
-    ]
+    // similarly, add 10 Q&A for social 2–5, religious 1–5
   }
 };
 
@@ -90,15 +92,17 @@ const subQuestionsMm = {
   social: {
     1: [
       {q:"မည်သို့ထိရောက်စွာနားထောင်ရမည်နည်း?", a:"မျက်လုံးကိုစူးစိုက်စောင့်ကြည့်၊ ခေါင်းထိုး၊ ချို့တဲ့မလုပ်ရန်။"},
-      {q:"ဘယ်လိုသနားကြင်နာမှုပြသရမည်နည်း?", a:"'သင်၏ခံစားချက်ကိုနားလည်သည်' ဟုပြောပါ။}
-      // Add remaining 8 Q&A
+      {q:"ဘယ်လိုသနားကြင်နာမှုပြသရမည်နည်း?", a:"'သင်၏ခံစားချက်ကိုနားလည်သည်' ဟုပြောပါ။"},
+      {q:"အရေးပေါ်အခြေအနေတွင် မည်သို့ကူညီရမည်နည်း?", a:"အေးဆေးစွာနားထောင်ပါ၊ ဆုံးဖြတ်ချက်မပေးပါ။"},
+      {q:"ဘယ်လောက်အကြိမ် check in လုပ်သင့်သလဲ?", a:"သူတို့ရဲ့အဆင်သင့်အရ လေ့လာပါ။"},
+      {q:"အနားယူမှုကိုမည်သို့လေးစားရမည်နည်း?", a:"အကြံပေးခြင်းမပြောမီ ခွင့်မေးပါ။"},
+      {q:"မလိုအပ်သောအကြံပေးမှုမပေးဘဲ မည်သို့ကူညီရမည်နည်း?", a:"နားထောင်ခြင်းအပေါ် အာရုံစိုက်ပါ။"},
+      {q:"ဖွင့်လှစ်မှုကို မည်သို့အားပေးရမည်နည်း?", a:"သက်တမ်းမရွေး စကားမေးပါ။"},
+      {q:"စိတ်ခံစားမှု ပင်ပန်းမှုကို မည်သို့စီမံရမည်နည်း?", a:"အနားယူခြင်းနှင့် self-care လေ့ကျင့်ပါ။"},
+      {q:"စကားမပြောဘဲ မည်သို့ကူညီရမည်နည်း?", a:"ပြုံးခြင်း သို့မဟုတ် ခေါင်းထိုးခြင်း လုပ်ပါ။"},
+      {q:"အခြားသူများကို မည်သို့ပါဝင်စေမည်နည်း?", a:"resource သို့ support community နဲ့ချိတ်ဆက်ပါ။"}
     ]
-  },
-  religious: {
-    1: [
-      {q:"ဘာသာရေးအကြံပေးခြင်းဆိုသည်မှာ?", a:"စိတ်နှင့်နတ်ဗေဒဆိုင်ရာ ပြဿနာများကို ကူညီခြင်း။"}
-      // Add remaining 9 Q&A
-    ]
+    // similarly, add 10 Q&A for social 2–5, religious 1–5
   }
 };
 
@@ -128,7 +132,7 @@ const subQuestionsMm = {
           const subList = document.createElement('ul');
           subList.style.marginLeft = "20px";
 
-          if(subObj[key][index+1]){
+          if(subObj[key] && subObj[key][index+1]){
             subObj[key][index+1].forEach(sq=>{
               const subLi = document.createElement('li');
               subLi.innerHTML = `<b>Q:</b> ${sq.q} <br> <b>A:</b> ${sq.a}`;
