@@ -97,7 +97,70 @@ const subQuestionsEn = {
     2: [], 3: [], 4: [], 5: [] // Similarly add 10 Q&A each
   }
 };
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WailaPt</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
 
+  <!-- Header / Intro -->
+  <header>
+    <!-- Language Toggle -->
+    <h1 id="title-en">Welcome to WailaPt</h1>
+    <h1 id="title-mm" style="display:none;">ဝေလိုပါ့ တက်</h1>
+
+    <p id="subtitle-en" class="subtitle">Gentle Support for Life, Faith, and Heart</p>
+    <p id="subtitle-mm" class="subtitle" style="display:none;">ဘဝ၊ ယုံကြည်ခြင်း နှင့် နှလုံးသားအတွက် သည်းခံရင်း အထောက်အကူပေးမှု</p>
+
+    <div style="text-align:center; margin-top:10px;">
+      <button onclick="switchLang('en')">English</button>
+      <button onclick="switchLang('mm')">မြန်မာ</button>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <!-- Preserve existing content -->
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <!-- English -->
+    <button id="serviceBtn-en">Services</button>
+    <div id="serviceSearch-en" style="display:none; margin-top:15px; max-width:400px;">
+      <input type="text" id="searchInput-en" placeholder="What do you need help with?" />
+      <ul id="supportList-en">
+        <li class="support-item" data-detail="social">Social Support</li>
+        <li class="support-item" data-detail="religious">Religious Guidance</li>
+      </ul>
+    </div>
+
+    <!-- Myanmar -->
+    <button id="serviceBtn-mm" style="display:none;">ဝန်ဆောင်မှုများ</button>
+    <div id="serviceSearch-mm" style="display:none; margin-top:15px; max-width:400px;">
+      <input type="text" id="searchInput-mm" placeholder="သင့်လိုအပ်ချက် အကြောင်း ရှာပါ" />
+      <ul id="supportList-mm">
+        <li class="support-item" data-detail="social">လူမှုအထောက်အကူ</li>
+        <li class="support-item" data-detail="religious">ဘာသာရေး လမ်းညွှန်မှု</li>
+      </ul>
+    </div>
+
+    <!-- Details Box -->
+    <div id="detailBox" style="margin-top:15px; max-width:400px;"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 WailaPt | <a href="mailto:abcds0773@gmail.com">Contact</a>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
 // -----------------------
 // Click Support Item → Show Details & Sub-Questions
 // -----------------------
