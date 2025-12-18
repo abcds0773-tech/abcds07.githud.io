@@ -10,49 +10,48 @@
 
   <!-- Header / Intro -->
   <header>
-    <h1>Welcome to WailaPt</h1>
-    <p class="subtitle">Gentle Support for Life, Faith, and Heart</p>
+    <!-- Language Toggle -->
+    <h1 id="title-en">Welcome to WailaPt</h1>
+    <h1 id="title-mm" style="display:none;">ဝေလိုပါ့ တက်</h1>
+
+    <p id="subtitle-en" class="subtitle">Gentle Support for Life, Faith, and Heart</p>
+    <p id="subtitle-mm" class="subtitle" style="display:none;">ဘဝ၊ ယုံကြည်ခြင်း နှင့် နှလုံးသားအတွက် သည်းခံရင်း အထောက်အကူပေးမှု</p>
+
+    <div style="text-align:center; margin-top:10px;">
+      <button onclick="switchLang('en')">English</button>
+      <button onclick="switchLang('mm')">မြန်မာ</button>
+    </div>
   </header>
 
-  <!-- Existing sections preserved -->
+  <!-- About Section -->
   <section id="about">
-    <!-- About content -->
+    <!-- Preserve existing content -->
   </section>
 
-  <!-- Services Section (New) -->
-  const serviceBtn = document.getElementById('serviceBtn');
-const serviceSearch = document.getElementById('serviceSearch');
-const searchInput = document.getElementById('searchInput');
-const supportList = document.getElementById('supportList');
-const items = supportList.getElementsByTagName('li');
-
-// Toggle search bar
-serviceBtn.addEventListener('click', () => {
-  serviceSearch.style.display = serviceSearch.style.display === 'none' ? 'block' : 'none';
-});
-
-// Filter support items
-searchInput.addEventListener('keyup', () => {
-  const filter = searchInput.value.toLowerCase();
-  for (let i = 0; i < items.length; i++) {
-    const text = items[i].textContent.toLowerCase();
-    items[i].style.display = text.includes(filter) ? '' : 'none';
-  }
-});
+  <!-- Services Section -->
   <section id="services">
-    <button id="serviceBtn">Services</button>
-    <div id="serviceSearch" style="display:none; margin-top:15px; max-width:400px;">
-      <input type="text" id="searchInput" placeholder="What do you need help with?" />
-      <ul id="supportList">
-        <li>Social Support</li>
-        <li>Religious Guidance</li>
-        <li>Relationship Advice</li>
-        <li>Career Guidance</li>
-        <li>Mental Health Support</li>
-        <li>Financial Advice</li>
-        <li>Study & Learning Help</li>
+    <!-- English -->
+    <button id="serviceBtn-en">Services</button>
+    <div id="serviceSearch-en" style="display:none; margin-top:15px; max-width:400px;">
+      <input type="text" id="searchInput-en" placeholder="What do you need help with?" />
+      <ul id="supportList-en">
+        <li class="support-item" data-detail="social">Social Support</li>
+        <li class="support-item" data-detail="religious">Religious Guidance</li>
       </ul>
     </div>
+
+    <!-- Myanmar -->
+    <button id="serviceBtn-mm" style="display:none;">ဝန်ဆောင်မှုများ</button>
+    <div id="serviceSearch-mm" style="display:none; margin-top:15px; max-width:400px;">
+      <input type="text" id="searchInput-mm" placeholder="သင့်လိုအပ်ချက် အကြောင်း ရှာပါ" />
+      <ul id="supportList-mm">
+        <li class="support-item" data-detail="social">လူမှုအထောက်အကူ</li>
+        <li class="support-item" data-detail="religious">ဘာသာရေး လမ်းညွှန်မှု</li>
+      </ul>
+    </div>
+
+    <!-- Details -->
+    <div id="detailBox" style="margin-top:15px; max-width:400px;"></div>
   </section>
 
   <!-- Footer -->
