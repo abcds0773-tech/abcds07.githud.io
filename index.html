@@ -1,0 +1,50 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Website</title>
+  <style>
+    body {margin:0;font-family:Arial, Helvetica, sans-serif;background:#eff6ff;color:#1e293b}
+    header {background:#1e40af;color:#fff;padding:20px}
+    header h1 {margin:0;font-size:28px}
+    nav a {color:#fff;margin-right:15px;text-decoration:none;font-weight:bold}
+    section {padding:40px;max-width:1000px;margin:auto}
+    .card {background:#fff;border-radius:16px;padding:25px;box-shadow:0 10px 25px rgba(0,0,0,0.08);margin-bottom:30px}
+    footer {text-align:center;padding:20px;background:#e5e7eb}
+    .lang {float:right}
+    button {padding:6px 12px;border:none;border-radius:8px;cursor:pointer}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 id="title">Waila Personal Website</h1>
+  <div class="lang">
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('mm')">MM</button>
+  </div>
+  <nav>
+    <a href="#home" id="navHome">Home</a>
+    <a href="#about" id="navAbout">About</a>
+    <a href="#contact" id="navContact">Contact</a>
+  </nav>
+</header>
+
+<section id="home" class="card">
+  <h2 id="homeTitle">Welcome</h2>
+  <p id="homeText">This is my modern personal website.</p>
+</section>
+
+<section id="about" class="card">
+  <h2 id="aboutTitle">About Me</h2>
+  <p id="aboutText">I am a creative person who loves technology.</p>
+</section>
+
+<section id="contact" class="card">
+  <h2 id="contactTitle">Contact</h2>
+  <p id="contactText">Email: abcds0773@gmail.com</p>
+</section>
+
+<footer>
+  <p>© 2025 Waila
