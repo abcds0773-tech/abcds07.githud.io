@@ -1,52 +1,38 @@
+// -----------------------
 // Language Switch
-function switchLang(lang){
+// -----------------------
+function switchLang(lang) {
   const enElems = ['title-en','subtitle-en','serviceBtn-en','serviceSearch-en'];
   const mmElems = ['title-mm','subtitle-mm','serviceBtn-mm','serviceSearch-mm'];
 
   if(lang==='en'){
-    enElems.forEach(id=>document.getElementById(id).style.display='');
-    mmElems.forEach(id=>document.getElementById(id).style.display='none');
-  }else{
-    enElems.forEach(id=>document.getElementById(id).style.display='none');
-    mmElems.forEach(id=>document.getElementById(id).style.display='');
+    enElems.forEach(id => document.getElementById(id).style.display='');
+    mmElems.forEach(id => document.getElementById(id).style.display='none');
+  } else {
+    enElems.forEach(id => document.getElementById(id).style.display='none');
+    mmElems.forEach(id => document.getElementById(id).style.display='');
   }
-  document.getElementById('detailBox').innerHTML='';
+  document.getElementById('detailBox').innerHTML = '';
 }
 
-// Toggle service search
-document.getElementById('serviceBtn-en').addEventListener('click',()=>{
-  const box=document.getElementById('serviceSearch-en');
-  box.style.display=box.style.display==='none'?'block':'none';
-  document.getElementById('detailBox').innerHTML='';
-});
-document.getElementById('serviceBtn-mm').addEventListener('click',()=>{
-  const box=document.getElementById('serviceSearch-mm');
-  box.style.display=box.style.display==='none'?'block':'none';
-  document.getElementById('detailBox').innerHTML='';
+// -----------------------
+// Toggle Service Search
+// -----------------------
+document.getElementById('serviceBtn-en').addEventListener('click', () => {
+  const box = document.getElementById('serviceSearch-en');
+  box.style.display = box.style.display==='none' ? 'block' : 'none';
+  document.getElementById('detailBox').innerHTML = '';
 });
 
-// Support Details
-const supportDetailsEn = {
-  social:["1. Listen and provide emotional support.","2. Help in social interactions and networking.","3. Assist with community engagement.","4. Offer guidance on social challenges.","5. Connect with resources and support groups."],
-  religious:["1. Spiritual counseling.","2. Guidance for faith practices.","3. Support for religious events.","4. Connect with faith communities.","5. Advice on moral dilemmas."]
-};
-const supportDetailsMm = {
-  social:["၁။ စိတ်ခံစားမှုအထောက်အကူ ပေးခြင်း။","၂။ လူမှုဆက်ဆံရေးနှင့် networking ကိုကူညီခြင်း။","၃။ အသိုင်းအဝိုင်း လှုပ်ရှားမှုများတွင် အကူအညီပေးခြင်း။","၄။ လူမှုဆိုင်ရာ အခက်အခဲများအတွက် လမ်းညွှန်ခြင်း။","၅။ အထောက်အကူများနှင့် support group များနှင့်ချိတ်ဆက်ခြင်း။"],
-  religious:["၁။ ဘာသာရေးအကြံဉာဏ် ပေးခြင်း။","၂။ ယုံကြည်မှု လေ့ကျင့်မှုများအတွက် လမ်းညွှန်ခြင်း။","၃။ ဘာသာရေး event များအတွက် အထောက်အကူပေးခြင်း။","၄။ ဘာသာရေး အသိုင်းအဝိုင်းနှင့် ချိတ်ဆက်ခြင်း။","၅။ ကျင့်ဝတ်နှင့် ကိုက်ညီမှုအကြံဉာဏ်ပေးခြင်း။"]
-};
-
-// Click support item → show details
-['en','mm'].forEach(lang=>{
-  const list=document.getElementById(`supportList-${lang}`).getElementsByClassName('support-item');
-  for(let i=0;i<list.length;i++){
-    list[i].addEventListener('click',()=>{
-      const key=list[i].dataset.detail;
-      const details=lang==='en'?supportDetailsEn[key]:supportDetailsMm[key];
-      if(details) document.getElementById('detailBox').innerHTML="<ul>"+details.map(d=>`<li>${d}</li>`).join('')+"</ul>";
-      else document.getElementById('detailBox').innerHTML='';
-    });
-  }
+document.getElementById('serviceBtn-mm').addEventListener('click', () => {
+  const box = document.getElementById('serviceSearch-mm');
+  box.style.display = box.style.display==='none' ? 'block' : 'none';
+  document.getElementById('detailBox').innerHTML = '';
 });
+
+// -----------------------
+// Main Support Details
+// -----------------------
 const supportDetailsEn = {
   social: [
     "1. Listen and provide emotional support.",
@@ -64,63 +50,97 @@ const supportDetailsEn = {
   ]
 };
 
-// Sub-questions for each main point (10 per item)
+// -----------------------
+// Sub-Questions (10 per item)
+// -----------------------
 const subQuestionsEn = {
   social: {
     1: [
       {q:"How do I listen effectively?", a:"Maintain eye contact, nod, and avoid interrupting."},
       {q:"How to show empathy?", a:"Use phrases like 'I understand' or 'I can see why you feel that way'."},
-      // 8 more ...
+      {q:"How to support someone in crisis?", a:"Offer calm presence and listen without judgment."},
+      {q:"How often should I check in?", a:"Regularly, based on their comfort level."},
+      {q:"How to respect boundaries?", a:"Ask permission before giving advice or touching."},
+      {q:"How to avoid giving unwanted advice?", a:"Focus on listening and reflecting their feelings."},
+      {q:"How to encourage openness?", a:"Ask open-ended questions gently."},
+      {q:"How to manage emotional fatigue?", a:"Take breaks and practice self-care."},
+      {q:"How to show support without words?", a:"Offer gestures like a smile or nod."},
+      {q:"How to involve others?", a:"Connect them to resources or supportive community."}
     ],
     2: [
       {q:"How to network?", a:"Attend events, introduce yourself, exchange contacts."},
       {q:"How to start conversations?", a:"Ask open-ended questions."},
-      // 8 more ...
+      {q:"How to maintain connections?", a:"Follow up regularly and show interest."},
+      {q:"How to offer value?", a:"Share useful information or help others."},
+      {q:"How to build trust?", a:"Be honest, reliable, and respectful."},
+      {q:"How to join communities?", a:"Find groups that align with interests or work."},
+      {q:"How to overcome shyness?", a:"Prepare topics and start small interactions."},
+      {q:"How to use social media?", a:"Connect professionally and politely online."},
+      {q:"How to handle rejection?", a:"Stay positive and learn from it."},
+      {q:"How to collaborate?", a:"Offer help and participate in group activities."}
     ],
-    // similarly for 3,4,5 ...
+    3: [], 4: [], 5: [] // Similarly add 10 Q&A each
   },
   religious: {
     1: [
       {q:"What is spiritual counseling?", a:"Guidance to cope with emotional or spiritual issues."},
       {q:"How often should one seek it?", a:"Depends on personal need."},
-      // 8 more ...
+      {q:"Is it confidential?", a:"Yes, private discussions are respected."},
+      {q:"Can anyone attend?", a:"Usually anyone seeking guidance."},
+      {q:"What topics are covered?", a:"Faith, morality, coping with challenges."},
+      {q:"Should I prepare questions?", a:"Yes, it helps make sessions effective."},
+      {q:"How long are sessions?", a:"Typically 30-60 minutes, varies by counselor."},
+      {q:"Can it replace therapy?", a:"No, it's complementary to mental health care."},
+      {q:"Is online counseling possible?", a:"Yes, many provide remote sessions."},
+      {q:"How to find a counselor?", a:"Ask your faith community or local resources."}
     ],
-    // similarly for 2,3,4,5 ...
+    2: [], 3: [], 4: [], 5: [] // Similarly add 10 Q&A each
   }
 };
 
-// Show main support details first
-const supportList = document.getElementById('supportList-en');
-const detailBox = document.getElementById('detailBox');
+// -----------------------
+// Click Support Item → Show Details & Sub-Questions
+// -----------------------
+['en','mm'].forEach(lang=>{
+  const list = document.getElementById(`supportList-${lang}`).getElementsByClassName('support-item');
+  const isEn = lang==='en';
+  const detailsObj = isEn ? supportDetailsEn : {}; // For Myanmar, define supportDetailsMm similarly
+  const subObj = isEn ? subQuestionsEn : {};       // For Myanmar, define subQuestionsMm similarly
 
-const items = supportList.getElementsByClassName('support-item');
-for(let i=0;i<items.length;i++){
-  items[i].addEventListener('click',()=>{
-    const key = items[i].dataset.detail;
-    detailBox.innerHTML = ""; // clear previous content
-    supportDetailsEn[key].forEach((item,index)=>{
-      const li = document.createElement('li');
-      li.textContent = item;
-      li.style.cursor = "pointer";
-      li.style.marginBottom = "5px";
-      
-      // On click → show sub-questions
-      li.addEventListener('click', ()=>{
-        const subList = document.createElement('ul');
-        subList.style.marginLeft = "20px";
-        subQuestionsEn[key][index+1].forEach(sq=>{
-          const subLi = document.createElement('li');
-          subLi.innerHTML = `<b>Q:</b> ${sq.q} <br> <b>A:</b> ${sq.a}`;
-          subLi.style.marginBottom="5px";
-          subList.appendChild(subLi);
+  for(let i=0;i<list.length;i++){
+    list[i].addEventListener('click',()=>{
+      const key = list[i].dataset.detail;
+      const details = detailsObj[key];
+      detailBox.innerHTML = ""; // Clear previous content
+
+      details.forEach((item,index)=>{
+        const li = document.createElement('li');
+        li.textContent = item;
+        li.style.cursor = "pointer";
+        li.style.marginBottom = "5px";
+
+        // On click → show sub-questions
+        li.addEventListener('click', ()=>{
+          const subList = document.createElement('ul');
+          subList.style.marginLeft = "20px";
+
+          if(subObj[key][index+1]){
+            subObj[key][index+1].forEach(sq=>{
+              const subLi = document.createElement('li');
+              subLi.innerHTML = `<b>Q:</b> ${sq.q} <br> <b>A:</b> ${sq.a}`;
+              subLi.style.marginBottom="5px";
+              subList.appendChild(subLi);
+            });
+          }
+
+          // Toggle sublist
+          const existing = li.querySelector('ul');
+          if(existing) li.removeChild(existing);
+          else li.appendChild(subList);
         });
-        // Remove previous subList if exists
-        const existing = li.querySelector('ul');
-        if(existing) li.removeChild(existing);
-        else li.appendChild(subList);
-      });
 
-      detailBox.appendChild(li);
+        detailBox.appendChild(li);
+      });
     });
-  });
-        }
+  }
+});
